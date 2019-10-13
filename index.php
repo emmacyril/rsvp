@@ -27,6 +27,13 @@
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 
+
+
+  <?php if(isset($_POST['login_pressed'])){
+    echo $_POST['uid'];
+    echo $_POST['password'];
+  } ?>
+
   <!-- =======================================================
     Theme Name: Rapid
     Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
