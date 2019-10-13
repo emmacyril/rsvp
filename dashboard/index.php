@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include 'inc/dbconnection.php';
+include '../inc/dbconnection.php';
 function redirect($url)
 {
     if (!headers_sent())
@@ -39,67 +39,24 @@ function redirect($url)
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
 
 
 
-  <?php if(isset($_POST['login_pressed'])){
-
-    $uid =  $_POST['uid'];
-  //echo $uid;
-  if(isset($_POST['password'])){
-    $password = $_POST['password'];
-    //echo $password;
-    $query_verify = "SELECT * FROM people WHERE sponsor_id = '$uid' AND password = '$password'";
-    // echo $query_verify;
-    $res = mysqli_query($link, $query_verify);
-    if(mysqli_num_rows($res)>0){
-      $row = mysqli_fetch_assoc($res);
-      $_SESSION['sponsor_id'] = $row['sponsor_id'];
-      $_SESSION['f_name'] = $row['first_name'];
-
-      echo $_SESSION['sponsor_id'];
-      echo $_SESSION['f_name'];
-
-         redirect('dashboard/');
-
-    }
-    else{
-          echo '<script type="text/javascript">';
-  echo 'setTimeout(function () { swal("Oops","Email and password do not match.","warning");';
-  echo '}, 1000);</script>';
-
-    }
-  }
-
-
-
-
-
-
-  } 
-
-
-
-
-
-
-
-
-  ?>
+  
 
   <!-- =======================================================
     Theme Name: Rapid
@@ -115,7 +72,7 @@ function redirect($url)
   ============================-->
   </body>
 
-  <?php include 'inc/header.php'?>
+  <?php include '../inc/header.php'?>
 
   <!--==========================
     Intro Section
@@ -142,7 +99,21 @@ function redirect($url)
     <div class="row">
       <div class="col-lg-12">
         <br><br><br> <br><br><br>
-        <?php include 'inc/body.php' ?>
+        <center>
+          <?php if(isset($_SESSION['sponsor_id'])){
+            echo 'Welcome '.$_SESSION['f_name'].' !';
+            echo '<p>Sponsor ID : '.$_SESSION['sponsor_id'].'</p>';
+          }
+          else{
+            redirect('../index.php');
+          }
+   ?>
+
+   <a href="../add"> <button style="width: 20%" class="btn btn-primary btn-block">Add New Node</button> </a>
+
+
+ </center>
+
       </div>
     </div>
   </div>
@@ -150,7 +121,7 @@ function redirect($url)
   <!--==========================
     Footer
   ============================-->
-  <?php include 'inc/footer.php' ?>
+  <?php include '../inc/footer.php' ?>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->

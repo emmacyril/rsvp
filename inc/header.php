@@ -1,4 +1,10 @@
-<header id="header">
+<?php
+
+session_start();
+
+ ?>
+
+<header id="header" style="background-color: #ECECEC">
 
     <div id="topbar">
       <div class="container">
@@ -42,8 +48,20 @@
             </ul>
           </li> -->
           <li><a href="#footer">Contact Us</a></li>
+          <?php
+
+          if(isset($_SESSION['sponsor_id'])){
+            echo '<li><a href="../logout">Logout</a></li>';
+          }
+          else{
+            echo '<li><a href="../logout">Login</a></li>';
+          }
+           ?>
+
+          
         </ul>
       </nav><!-- .main-nav -->
-      
+      <br>
     </div>
+
   </header><!-- #header -->

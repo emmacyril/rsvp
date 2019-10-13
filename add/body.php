@@ -33,15 +33,39 @@
 </style>
 </head>
 <body>
-<div class="login-form">
+<div class="login-form" style="margin-bottom: 200px">
     <form action="" method="post">
-        <h2 class="text-center">Log in</h2>       
+        <h2 class="text-center">Register</h2>       
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Sponsor ID" name="uid" required="required">
+            <input type="text" class="form-control" placeholder="First Name" name="f_name" required="required">
         </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last Name" name="l_name" required="required">
+        </div>
+
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password" name="password" required="required">
         </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="c_password" required="required">
+        </div>
+
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Phone No." name="phoneno" required="required">
+        </div>
+
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="email id" name="email" required="required">
+        </div>
+
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Aadhar ID" name="aadhar" required="required">
+        </div>
+
+
+
         <div class="form-group">
             <button type="submit" name="login_pressed" class="btn btn-primary btn-block">Log in</button>
         </div>
