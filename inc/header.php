@@ -19,13 +19,13 @@ session_start();
     <div class="container">
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
-        <h1 class="text-light"><a href="#intro" class="scrollto"><span>RSVP</span></a></h1><p>Sales & Marketing</p>
+        <h1 class="text-light"><a href="#intro" class="scrollto"><span>RSVP</span></a></h1><p>Sale & Marketing</p>
         <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#intro">Home</a></li>
+          <li class="active"><a href="../index.php">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
           <!-- <li><a href="#portfolio">Portfolio</a></li>
