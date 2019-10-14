@@ -18,8 +18,6 @@ function redirect($url)
         echo '</noscript>'; exit;
     }
 }
-
-
  ?>
 
 <!DOCTYPE html>
