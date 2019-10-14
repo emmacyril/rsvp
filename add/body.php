@@ -71,11 +71,11 @@ $rand_password = random_strings(10);
         </div>
 
         <div class="form-group">
-            <input type="date" class="form-control" placeholder="Phone No." name="phoneno" required="required">
+            <input type="date" class="form-control" placeholder="DOB" name="dob" required="required">
         </div>
 
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="email ID" name="phoneno" required="required">
+            <input type="email" class="form-control" placeholder="email ID" name="email" required="required">
         </div>
 
         <div class="form-group">
