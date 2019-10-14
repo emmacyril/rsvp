@@ -78,10 +78,15 @@ $rand_password = random_strings(10);
             <input type="email" class="form-control" placeholder="email ID" name="email" required="required">
         </div>
 
+        
+
         <div class="form-group">
             <input type="number" class="form-control" placeholder="Mobile No" name="mobile" required="required">
         </div>
 
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Sponsor ID" name="mobile" required="required">
+        </div>
 
         <div class="form-group">
             <p style="color: gray; margin-left: 5px"> PLACEMENT </p>
