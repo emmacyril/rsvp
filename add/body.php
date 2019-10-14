@@ -79,7 +79,7 @@ $rand_password = random_strings(10);
         </div>
 
         <div class="form-group">
-            <input type="number" class="form-control" placeholder="Aadhar ID" name="aadhar" required="required">
+            <input type="number" class="form-control" placeholder="Mobile No" name="mobile" required="required">
         </div>
 
 
