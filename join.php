@@ -14,12 +14,6 @@ if(isset($_GET['join_user'])){
 	$f_name = mysqli_real_escape_string($con,$_GET['f_name']);
 	$l_name = mysqli_real_escape_string($con,$_GET['l_name']);
 	$dob = mysqli_real_escape_string($con,$_GET['dob']);
-
-	echo $pan;
-	echo $f_name;
-	echo $l_name;
-	echo $dob;
-
 	$email = mysqli_real_escape_string($con,$_GET['email']);
 	$mobile = mysqli_real_escape_string($con,$_GET['mobile']);
 	$under_userid = mysqli_real_escape_string($con,$_GET['under_userid']);
