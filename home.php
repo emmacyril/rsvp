@@ -14,7 +14,7 @@ $userid = $_SESSION['userid'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mlml Website  - Home</title>
+    <title>RSVP  - Home</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,14 +44,21 @@ $userid = $_SESSION['userid'];
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">User Home</h1>
+                        <?php if($_SESSION['f_name']){
+                            echo '<h3 class="page-header">'.$_SESSION['f_name'].'\'s Dashboard</h3>';
+                        }
+                        else{
+                            echo '<h3 class="page-header">User Home</h3>';
+                        }
+                         ?>
+                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
                 <div class="row">
                 	 <?php
-						$query = mysqli_query($con,"select * from income where userid='$userid'");
+						$query = mysqli_query($con,"select * from income_received where userid='$userid'");
 						$result = mysqli_fetch_array($query);
 					?>
                 	<div class="col-lg-4">

@@ -5,10 +5,12 @@ $email = mysqli_real_escape_string($con,$_POST['email']);
 $password = mysqli_real_escape_string($con,$_POST['password']);
 
 $query = mysqli_query($con,"select * from user where email='$email' and password='$password'");
+$row = mysqli_fetch_assoc($query);
 if(mysqli_num_rows($query)>0){
 	$_SESSION['userid'] = $email;
 	$_SESSION['id'] = session_id();
 	$_SESSION['login_type'] = "user";
+	$_SESSION['f_name'] = $row['f_name'];
 	
 	echo '<script>alert("Login Success.");window.location.assign("home.php");</script>';
 	
