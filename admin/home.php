@@ -1,6 +1,6 @@
 <?php
 include('php-includes/check-login.php');
-require('php-includes/connect.php');
+require('../php-includes/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@ require('php-includes/connect.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mlml Website  - Home</title>
+    <title>RSVP admin  - Home</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

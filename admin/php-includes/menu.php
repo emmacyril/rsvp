@@ -39,9 +39,6 @@
                             <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="view-pin-request.php"><i class="fa fa-adjust fa-fw"></i> View Pin Request</a>
-                        </li>
-                        <li>
                             <a href="income.php"><i class="fa fa-rupee fa-fw"></i> Income</a>
                         </li>
                         <li>

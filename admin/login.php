@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('php-includes/connect.php');
+require('../php-includes/connect.php');
 $userid = mysqli_real_escape_string($con,$_POST['userid']);
 $password = mysqli_real_escape_string($con,$_POST['password']);
 
@@ -14,7 +14,11 @@ if(mysqli_num_rows($query)>0){
 	
 }
 else{
-	echo '<script>alert("Email id or password is worng.");window.location.assign("index.php");</script>';
+	echo '<script>alert("Email id or password is wrong.");
+
+	
+
+	</script>';
 }
 
 ?>
