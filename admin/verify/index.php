@@ -138,7 +138,21 @@ td, th {
                                             <?php echo $row_verify['doc_no'] ?>
                                         </td>
                                         <td>
+
+                                            <?php
+
+                                            if($row_verify['doc_status']==1)
+
+                                            {
+                                             ?>
                                             <a target="_blank" href="http://rsvpsalenmarketing.com/kyc/<?php echo $row_verify['doc_name'] ?>"> <?php echo "See Document" ?> </a>
+                                        <?php } 
+                                        else{
+
+                                            echo "Not Submitted";
+                                        }
+
+                                        ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
