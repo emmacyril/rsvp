@@ -15,7 +15,7 @@ $login_query = "select * from admin where userid='$userid' and password='$passwo
 $res_query = mysqli_query($con, $login_query);
 
 
-echo $query;
+echo $login_query;
 
 if(mysqli_num_rows($con)>0){
 	$_SESSION['userid'] = $userid;
