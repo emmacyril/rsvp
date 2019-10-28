@@ -64,11 +64,11 @@ require('../php-includes/connect.php');
                     <div class="col-lg-3">
                     	<div class="panel panel-info">
                         	<div class="panel-heading">
-                            	<h4 class="panel-title">Total Pin Request</h4>
+                            	<h4 class="panel-title">Verification Request</h4>
                             </div>
                             <div class="panel-body">
                             	<?php 
-								echo  mysqli_num_rows(mysqli_query($con,"select * from pin_request"));
+								echo  mysqli_num_rows(mysqli_query($con,"select * from user WHERE verified='0'"));
 								?>
                             </div>
                         </div>
