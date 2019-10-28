@@ -11,11 +11,13 @@ $password = $_POST['password'];
 echo $userid;
 echo $password;
 
-$query = mysqli_query($con,"select * from admin where userid='$userid' and password='$password'");
+$login_query = "select * from admin where userid='$userid' and password='$password'";
+$res_query = mysqli_query($con, $login_query);
+
 
 echo $query;
 
-if(mysqli_num_rows($query)>0){
+if(mysqli_num_rows($con)>0){
 	$_SESSION['userid'] = $userid;
 	$_SESSION['id'] = session_id();
 	$_SESSION['login_type'] = "admin";
