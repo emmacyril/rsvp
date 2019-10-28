@@ -8,6 +8,9 @@ require('../php-includes/connect.php');
 $userid = $_POST['userid'];
 $password = $_POST['password'];
 
+echo $userid;
+echo $password;
+
 $query = mysqli_query($con,"select * from admin where userid='$userid' and password='$password'");
 
 echo $query;
