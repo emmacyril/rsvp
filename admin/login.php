@@ -17,6 +17,7 @@ if(mysqli_num_rows($query)>0){
 	
 }
 else{
+	echo "Something Went Wrong";
 	echo '<script>alert("Email id or password is wrong.");
 
 	
