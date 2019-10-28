@@ -99,6 +99,12 @@ td, th {
                                             PAN
                                         </th>
                                         <th>
+                                            Document
+                                        </th>
+                                         <th>
+                                            Document Number
+                                        </th>
+                                        <th>
                                             File
                                         </th>
                                         <th>
@@ -114,10 +120,25 @@ td, th {
                                  ?>
                                     <tr>
                                         <td>
-                                            Akash
+                                            <?php echo $row_verify['f_name'] ?>
                                         </td>
                                         <td>
-                                            Jaiswal
+                                            <?php echo $row_verify['l_name'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row_verify['dob'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row_verify['pan'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row_verify['doc_type'] ?>
+                                        </td>
+                                         <td>
+                                            <?php echo $row_verify['doc_no'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row_verify['doc_name'] ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
