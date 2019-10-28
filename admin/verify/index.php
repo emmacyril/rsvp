@@ -36,7 +36,7 @@ require('../../php-includes/connect.php');
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php include('php-includes/menu.php'); ?>
+        <?php include('../php-includes/menu.php'); ?>
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -49,56 +49,42 @@ require('../../php-includes/connect.php');
                 </div>
                 <!-- /.row -->
                 <div class="row">
-                	<div class="col-lg-3">
+
+
+                	<div class="col-lg-12">
                     	<div class="panel panel-primary">
                         	<div class="panel-heading">
                             	<h4 class="panel-title">Total User</h4>
                             </div>
                             <div class="panel-body">
-                            	<?php 
-								echo  mysqli_num_rows(mysqli_query($con,"select * from user"));
-								?>
+                            	<table>
+                                    <th>
+                                        <td>
+                                            First Name
+                                        </td>
+                                        <td>
+                                            Last Name
+                                        </td>
+                                        <td>
+                                            DOB
+                                        </td>
+                                        <td>
+                                            PAN
+                                        </td>
+                                        <td>
+                                            File
+                                        </td>
+                                        <td>
+                                            Verify
+                                        </td>
+                                    </th>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    <a href="verify">
-                    <div class="col-lg-3">
-                    	<div class="panel panel-info">
-                        	<div class="panel-heading">
-                            	<h4 class="panel-title">Verification Request</h4>
-                            </div>
-                            <div class="panel-body">
-                            	<?php 
-								echo  mysqli_num_rows(mysqli_query($con,"select * from user WHERE verified='0'"));
-								?>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class="col-lg-3">
-                    	<div class="panel panel-success">
-                        	<div class="panel-heading">
-                            	<h4 class="panel-title">Total Pin</h4>
-                            </div>
-                            <div class="panel-body">
-                            	<?php 
-								echo  mysqli_num_rows(mysqli_query($con,"select * from pin_list"));
-								?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                    	<div class="panel panel-danger">
-                        	<div class="panel-heading">
-                            	<h4 class="panel-title">Total No of Payout </h4>
-                            </div>
-                            <div class="panel-body">
-                            	<?php 
-								echo  mysqli_num_rows(mysqli_query($con,"select * from income_received"));
-								?>
-                            </div>
-                        </div>
-                    </div>
+                    
+                   
+                    
                 </div>
             </div>
             <!-- /.container-fluid -->
