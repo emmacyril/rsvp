@@ -58,26 +58,26 @@ require('../../php-includes/connect.php');
                             </div>
                             <div class="panel-body">
                             	<table>
-                                    <th>
-                                        <td>
+                                    <tr>
+                                        <th>
                                             First Name
-                                        </td>
-                                        <td>
+                                        </th>
+                                        <th>
                                             Last Name
-                                        </td>
-                                        <td>
+                                        </th>
+                                        <th>
                                             DOB
-                                        </td>
-                                        <td>
+                                        </th>
+                                        <th>
                                             PAN
-                                        </td>
-                                        <td>
+                                        </th>
+                                        <th>
                                             File
-                                        </td>
-                                        <td>
+                                        </th>
+                                        <th>
                                             Verify
-                                        </td>
-                                    </th>
+                                        </th>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
