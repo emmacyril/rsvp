@@ -138,7 +138,7 @@ td, th {
                                             <?php echo $row_verify['doc_no'] ?>
                                         </td>
                                         <td>
-                                            <?php echo $row_verify['doc_name'] ?>
+                                            <a href="display/view.php?fl=<?php echo $row_verify['doc_name'] ?>"> <?php echo $row_verify['doc_name'] ?> </a>
                                         </td>
                                     </tr>
                                 <?php } ?>

@@ -61,7 +61,7 @@ if(isset($_GET['join_user'])){
 	if($flag==1){
 		
 		//Insert into User profile
-		$query = mysqli_query($con,"insert into user(`email`,`password`,`mobile`,`pan`,`f_name`,`l_name`,`under_userid`,`side`) values('$email','$password','$mobile','$pan','$f_name','$l_name','$under_userid','$side')");
+		$query = mysqli_query($con,"insert into user(`email`,`password`,`mobile`,`pan`,`f_name`,`l_name`,`dob`,`under_userid`,`side`) values('$email','$password','$mobile','$pan','$f_name','$l_name','dob','$under_userid','$side')");
 		
 		echo mysqli_error($con);
 
