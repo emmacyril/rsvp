@@ -17,7 +17,7 @@ $res_query = mysqli_query($con, $login_query);
 
 echo $login_query;
 
-if(mysqli_num_rows($con)>0){
+if(mysqli_num_rows($res_query)>0){
 	$_SESSION['userid'] = $userid;
 	$_SESSION['id'] = session_id();
 	$_SESSION['login_type'] = "admin";
