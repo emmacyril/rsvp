@@ -110,7 +110,7 @@ td, th {
 
                                 $query_verify = "SELECT * FROM user WHERE verified=0";
                                 $res_verify = mysqli_query($con, $query_verify);
-                                while($row_verify = mysqli_fetch_assoc($res_verify);){
+                                while($row_verify = mysqli_fetch_assoc($res_verify)) {
                                  ?>
                                     <tr>
                                         <td>
