@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Login | RSVP</title>
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
