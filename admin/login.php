@@ -2,8 +2,11 @@
 echo "Hello World";
 session_start();
 require('../php-includes/connect.php');
-$userid = mysqli_real_escape_string($con,$_POST['userid']);
-$password = mysqli_real_escape_string($con,$_POST['password']);
+// $userid = mysqli_real_escape_string($con,$_POST['userid']);
+// $password = mysqli_real_escape_string($con,$_POST['password']);
+
+$userid = $_POST['userid'];
+$password = $_POST['password'];
 
 $query = mysqli_query($con,"select * from admin where userid='$userid' and password='$password'");
 
