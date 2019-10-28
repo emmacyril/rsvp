@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('php-includes/connect.php');
+require('../php-includes/connect.php');
 $userid = mysqli_real_escape_string($con,$_POST['userid']);
 $password = mysqli_real_escape_string($con,$_POST['password']);
 
