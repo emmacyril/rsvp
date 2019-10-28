@@ -1,4 +1,5 @@
 <?php
+echo "Hello World";
 session_start();
 require('../php-includes/connect.php');
 $userid = mysqli_real_escape_string($con,$_POST['userid']);
