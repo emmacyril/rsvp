@@ -27,6 +27,36 @@ require('../../php-includes/connect.php');
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <style>
+
+
+                        table { 
+    width: 750px; 
+    border-collapse: collapse; 
+    margin:50px auto;
+    }
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+    background: #eee; 
+    }
+
+th { 
+    background: #3498db; 
+    color: white; 
+    font-weight: bold; 
+    }
+
+td, th { 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+    font-size: 18px;
+    }
+
+
+    </style>
+
  
 
 </head>
@@ -43,7 +73,7 @@ require('../../php-includes/connect.php');
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Admin Home</h1>
+                        <h1 class="page-header">Unverified Users</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -54,10 +84,11 @@ require('../../php-includes/connect.php');
                 	<div class="col-lg-12">
                     	<div class="panel panel-primary">
                         	<div class="panel-heading">
-                            	<h4 class="panel-title">Total User</h4>
+                            	<h4 class="panel-title"></h4>
                             </div>
                             <div class="panel-body">
                             	<table>
+                                    <thead>
                                     <tr>
                                         <th>
                                             First Name
@@ -77,6 +108,15 @@ require('../../php-includes/connect.php');
                                         <th>
                                             Verify
                                         </th>
+                                    </tr>
+                                </thead>
+                                    <tr>
+                                        <td>
+                                            Akash
+                                        </td>
+                                        <td>
+                                            Jaiswal
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
