@@ -2,6 +2,29 @@
 include('php-includes/check-login.php');
 include('php-includes/connect.php');
 $userid = $_SESSION['userid'];
+
+
+
+function redirect($url)
+{
+    if (!headers_sent())
+    {    
+        header('Location: '.$url);
+        exit;
+        }
+    else
+        {  
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="'.$url.'";';
+        echo '</script>';
+        echo '<noscript>';
+        echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
+        echo '</noscript>'; exit;
+    }
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +84,9 @@ $userid = $_SESSION['userid'];
 						$query = mysqli_query($con,"select * from income_received where userid='$userid'");
 						$result = mysqli_fetch_array($query);
 					?>
+
+
+
                 	<div class="col-lg-4">
                     	<div class="panel panel-info">
                         	<div class="panel-heading">
@@ -80,13 +106,15 @@ $userid = $_SESSION['userid'];
                             </div>
                             <div class="panel-body">
                             	<?php 
-								echo $result['current_bal']
+								echo $result['current_bal'];
 								?>
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col-lg-4">
-                    	<div class="panel panel-danger">
+                    	<div class="panel panel-info">
                         	<div class="panel-heading">
                             	<h4 class="panel-title">Total Income</h4>
                             </div>
@@ -97,6 +125,139 @@ $userid = $_SESSION['userid'];
                             </div>
                         </div>
                     </div>
+
+                    <?php
+
+                    $query_aadhar = "SELECT * FROM user WHERE email='$userid'";
+                    $res_aadhar = mysqli_query($con, $query_aadhar);
+                    $row_aadhar = mysqli_fetch_assoc($res_aadhar);
+
+                    if($row_aadhar['doc_status']==0)
+                    {
+                        ?>
+
+                        <div class="col-lg-4">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">KYC Details</h4>
+                            </div>
+
+                            <?php
+
+                            if(isset($_POST['doc_save_button'])){
+                                $doc_type =  $_POST['doc_type'];
+                                $doc_no =  $_POST['doc_no'];
+                            if (isset($_FILES['doc_file'])) {
+
+    $errors = array();
+    $file_name = $_FILES['doc_file']['name'];
+    $file_size = $_FILES['doc_file']['size'];
+    $file_tmp = $_FILES['doc_file']['tmp_name'];
+    $file_type = $_FILES['doc_file']['type'];
+    $tmp = explode('.', $_FILES['doc_file']['name']);
+    $file_ext = end($tmp);
+    $file_ext = strtolower($file_ext);
+    // echo $file_ext;
+
+    $extensions = array("jpeg", "jpg", "png", "pdf");
+
+    if (in_array($file_ext, $extensions) === false) {
+        $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+    }
+
+    if ($file_size > 2097152) {
+        $errors[] = 'File size must be excately 2 MB';
+    }
+    
+    if (empty($errors) == true) {
+        $query2 = "UPDATE user SET doc_status=1, doc_type='$doc_type', doc_no='$doc_no', doc_name='$file_name' WHERE email='$userid'";
+        $res2 = mysqli_query($con, $query2);
+        echo mysqli_error($con);
+        move_uploaded_file($file_tmp, "kyc/" . $file_name);
+//        echo "Success";
+        //redirect("index.php");
+    } else {
+        print_r($errors);
+    }
+}
+redirect("Refresh:0");
+}
+
+
+
+                            ?>
+
+
+
+                            <div class="panel-body">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    <label for="document_no"> Document No.</label>
+                                    <input id="document_no" name="doc_no" type="text"><br><br>
+                                    <label> Document Type </label>
+                                    <input type="radio" name="doc_type" value="aadhar">&nbsp;AADHAR &nbsp;
+                                    <input type="radio" name="doc_type" value="PAN">&nbsp;PAN &nbsp;
+                                    <input type="radio" name="doc_type" value="Driving License">&nbsp;Driving License&nbsp;
+                                    <!-- <input type="radio" name="doc_type" value="Aadhar">&nbsp;AADHAR &nbsp; -->
+                                    <input type="radio" name="doc_type" value="Voter UD">&nbsp;Voter ID &nbsp;<br>
+                                    <br>
+                                    <input required="required" type="file" multiple="multiple" name="doc_file"> 
+                                    <br>
+                                    <input type="submit" value="SAVE" name="doc_save_button">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <?php 
+                    }
+
+                    else if($row_aadhar['doc_status']==1 && $row_aadhar['verified']==0){
+                        ?>
+
+                            <div class="col-lg-4">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Verification Pending</h4>
+                            </div>
+                            <div class="panel-body">
+                                <?php 
+                                echo "KYC Verification Under Progress.";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                        <?php
+                    }
+                    else{
+
+                        ?>
+
+
+                        <div class="col-lg-4">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Verified</h4>
+                            </div>
+                            <div class="panel-body">
+                                <?php 
+                                echo "Your KYC has been verified.";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                        <?php
+                        
+                    }
+
+                     ?>
+                     
+
+
                     <!-- <div class="col-lg-3">
                     	<div class="panel panel-warning">
                         	<div class="panel-heading">

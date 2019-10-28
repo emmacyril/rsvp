@@ -301,7 +301,7 @@ function getUnderIdPlace($userid){
 
                             <div class="form-group">
                                 <label>PAN</label>
-                                <input onchange="check_pan(this)" type="text" name="pan" class="form-control" required>
+                                <input id="pan_field" onchange="check_pan(this)" type="text" name="pan" class="form-control" required>
                             </div>
                             <!-- PAN STATUS -->
                             <p id="pan_status"></p>
@@ -377,6 +377,9 @@ function getUnderIdPlace($userid){
             // document.getElementById("pan_status").value="PAN Verified";
             document.getElementById("pan_status").innerHTML = "<span style='font-size:20px;'>&#10003;</span> PAN VALID";
             document.getElementById("pan_status").style.color="GREEN";
+            var panUP = panVal.toUpperCase();
+            console.log(panUP);
+            document.getElementById('pan_field').innerHTML=panUP;
         	}
         	else {
             console.log("Incorrect PAN");

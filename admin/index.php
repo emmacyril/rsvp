@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -29,6 +28,8 @@
 
 <body>
 
+    
+
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -43,10 +44,10 @@
                                     <input class="form-control" placeholder="Userid" name="userid" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit"  class="btn btn-lg btn-success btn-block">Login</button>
+                                <button  type="submit"  class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
                         </form>
                     </div>
