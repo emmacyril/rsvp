@@ -5,6 +5,8 @@
 $name = $_GET['fl'];
 $filename = "https://rsvpsalenmarketing.com/kyc/".$name;
 
+echo $filename;
+
 // Header content type 
 header("Content-type: application/pdf"); 
 
