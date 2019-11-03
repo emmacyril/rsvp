@@ -129,32 +129,32 @@ td, th {
                                  ?>
                                     <tr>
                                         <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['f_name'] ?>
                                             </p>
                                         </td>
                                         <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['l_name'] ?>
                                             </p>
                                         </td>
                                         <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['dob'] ?>
                                             </p>
                                         </td>
                                          <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['mobile'] ?>
                                             </p>
                                         </td>
                                         <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['pan'] ?>
                                             </p>
                                         </td>
                                         <td>
-                                            <p>
+                                            <p style="font-size: 14px">
 
                                             <?php
 
@@ -173,17 +173,17 @@ td, th {
                                         ?>
                                         </td>
                                         <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['doc_type'] ?>
                                             </p>
                                         </td>
                                          <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['doc_no'] ?>
                                             </p>
                                         </td>
                                         <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                             <?php
 
                                             if($row_verify['doc_status']==1)
@@ -201,13 +201,17 @@ td, th {
                                         </p>
                                         </td>
                                         <td>
-                                            <p>
+                                            <p style="font-size: 14px">
                                              <?php echo $row_verify['payment_amt'] ?>
                                         </td>
                                     </p>
                                         <td>
                                             <p>
                                             <select name="verification">
+                                                <option disabled="">
+                                                    SELECT
+                                                </option>
+
                                                 <option>
                                                     Verified
                                                 </option>
