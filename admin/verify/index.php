@@ -113,6 +113,9 @@ td, th {
                                         <th>
                                             File
                                         </th>
+                                         <th>
+                                            Payment Amount
+                                        </th>
                                         <th>
                                             Verify
                                         </th>
@@ -179,6 +182,9 @@ td, th {
                                         }
 
                                         ?>
+                                        </td>
+                                        <td>
+                                             <?php echo $row_verify['payment_amt'] ?>
                                         </td>
                                         <td>
                                             <select name="verification">
