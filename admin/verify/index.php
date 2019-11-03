@@ -117,7 +117,7 @@ td, th {
                                             Payment Amount
                                         </th>
                                         <th>
-                                            Verify
+                                            Verification
                                         </th>
                                     </tr>
                                 </thead>
