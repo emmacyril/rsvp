@@ -13,7 +13,7 @@ require('../../php-includes/connect.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RSVP admin  - Home</title>
+    <title>admin - RSVP</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -99,6 +99,9 @@ td, th {
                                             PAN
                                         </th>
                                         <th>
+                                            PAN Card
+                                        </th>
+                                        <th>
                                             Document
                                         </th>
                                          <th>
@@ -130,6 +133,23 @@ td, th {
                                         </td>
                                         <td>
                                             <?php echo $row_verify['pan'] ?>
+                                        </td>
+                                        <td>
+
+                                            <?php
+
+                                            if($row_verify['doc_status']==1)
+
+                                            {
+                                             ?>
+                                            <a target="_blank" href="http://rsvpsalenmarketing.com/pan/<?php echo $row_verify['pan_file'] ?>"> <?php echo "PAN Card" ?> </a>
+                                        <?php } 
+                                        else{
+
+                                            echo "Not Submitted";
+                                        }
+
+                                        ?>
                                         </td>
                                         <td>
                                             <?php echo $row_verify['doc_type'] ?>
