@@ -13,7 +13,7 @@ require('../../php-includes/connect.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RSVP admin  - Home</title>
+    <title>admin - RSVP</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@ td, th {
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php include('../php-includes/menu.php'); ?>
+        <?php include('../inc/menu.php'); ?>
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -96,7 +96,13 @@ td, th {
                                             DOB
                                         </th>
                                         <th>
+                                            Mobile
+                                        </th>
+                                        <th>
                                             PAN
+                                        </th>
+                                        <th>
+                                            PAN Card
                                         </th>
                                         <th>
                                             Document
@@ -107,38 +113,77 @@ td, th {
                                         <th>
                                             File
                                         </th>
+                                         <th>
+                                            Payment Amount
+                                        </th>
                                         <th>
-                                            Verify
+                                            Verification
                                         </th>
                                     </tr>
                                 </thead>
                                 <?php
 
-                                $query_verify = "SELECT * FROM user";
+                                $query_verify = "SELECT * FROM user WHERE verified=1";
                                 $res_verify = mysqli_query($con, $query_verify);
                                 while($row_verify = mysqli_fetch_assoc($res_verify)) {
                                  ?>
                                     <tr>
                                         <td>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['f_name'] ?>
+                                            </p>
                                         </td>
                                         <td>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['l_name'] ?>
+                                            </p>
                                         </td>
                                         <td>
+                                            <p style="font-size: 14px">
                                             <?php echo $row_verify['dob'] ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row_verify['pan'] ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row_verify['doc_type'] ?>
+                                            </p>
                                         </td>
                                          <td>
-                                            <?php echo $row_verify['doc_no'] ?>
+                                            <p style="font-size: 14px">
+                                            <?php echo $row_verify['mobile'] ?>
+                                            </p>
                                         </td>
                                         <td>
+                                            <p style="font-size: 14px">
+                                            <?php echo $row_verify['pan'] ?>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="font-size: 14px">
 
+                                            <?php
+
+                                            if($row_verify['doc_status']==1)
+
+                                            {
+                                             ?>
+                                            <a target="_blank" href="http://rsvpsalenmarketing.com/pan/<?php echo $row_verify['pan_file'] ?>"> <?php echo "PAN Card" ?> </a>
+                                        <?php } 
+                                        else{
+
+
+                                            echo "Not Submitted";
+                                        }
+
+                                        ?>
+                                        </td>
+                                        <td>
+                                            <p style="font-size: 14px">
+                                            <?php echo $row_verify['doc_type'] ?>
+                                            </p>
+                                        </td>
+                                         <td>
+                                            <p style="font-size: 14px">
+                                            <?php echo $row_verify['doc_no'] ?>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p style="font-size: 14px">
                                             <?php
 
                                             if($row_verify['doc_status']==1)
@@ -153,6 +198,33 @@ td, th {
                                         }
 
                                         ?>
+                                        </p>
+                                        </td>
+                                        <td>
+                                            <p style="font-size: 14px">
+                                             <?php echo $row_verify['payment_amt'] ?>
+                                        </td>
+                                    </p>
+                                        <td>
+                                            <p>
+                                            <select name="verification">
+                                                <option disabled="">
+                                                    SELECT
+                                                </option>
+
+                                                <option>
+                                                    Verified
+                                                </option>
+
+                                                <option>
+                                                    Rejected
+                                                </option>
+
+                                                <option>
+                                                    Pending
+                                                </option>
+                                            </select>
+                                        </p>
                                         </td>
                                     </tr>
                                 <?php } ?>
