@@ -1,5 +1,16 @@
+<?php session_start();?>
+
+
+<head>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    
+</head>
+
 <?php
-session_start();
 require('php-includes/connect.php');
 $email = mysqli_real_escape_string($con,$_POST['email']);
 $password = mysqli_real_escape_string($con,$_POST['password']);
@@ -11,12 +22,37 @@ if(mysqli_num_rows($query)>0){
 	$_SESSION['id'] = session_id();
 	$_SESSION['login_type'] = "user";
 	$_SESSION['f_name'] = $row['f_name'];
-	
-	echo '<script>alert("Login Success.");window.location.assign("home.php");</script>';
+
+	echo '<script type="text/javascript">';
+  		echo 'setTimeout(function () { swal("Login Success!","Redirecting to Dashboard.","success");';
+  		echo '}, 1000);
+  		</script>';
+
+    echo '<script>window.setTimeout(function(){
+
+        window.location.assign("home.php");
+
+    }, 5000)</script>';
+
+
+
+
 	
 }
 else{
-	echo '<script>alert("Email id or password is worng.");window.location.assign("index.php");</script>';
+  	echo '<script type="text/javascript">';
+  		echo 'setTimeout(function () { swal("Invalid user ID and password!","Enter valid credentials.","warning");';
+  		echo '}, 1000);
+  		</script>';
+
+    echo '<script>window.setTimeout(function(){
+
+        window.location.assign("index.php");
+
+    }, 5000)</script>';
+
 }
+
+
 
 ?>

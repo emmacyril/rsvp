@@ -87,7 +87,7 @@ function redirect($url)
 
 
 
-                	<div class="col-lg-4">
+                	<!-- <div class="col-lg-4">
                     	<div class="panel panel-info">
                         	<div class="panel-heading">
                             	<h4 class="panel-title">Today's Income</h4>
@@ -98,8 +98,8 @@ function redirect($url)
 								?>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
+                    </div> -->
+                    <!-- <div class="col-lg-4">
                     	<div class="panel panel-success">
                         	<div class="panel-heading">
                             	<h4 class="panel-title">Current Income</h4>
@@ -110,10 +110,10 @@ function redirect($url)
 								?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
-                    <div class="col-lg-4">
+                    <!-- <div class="col-lg-4">
                     	<div class="panel panel-info">
                         	<div class="panel-heading">
                             	<h4 class="panel-title">Total Income</h4>
@@ -124,7 +124,108 @@ function redirect($url)
 								?>
                             </div>
                         </div>
+                    </div> -->
+
+
+                    <?php
+
+                    $query_pan = "SELECT * FROM user WHERE email='$userid'";
+                    $res_pan = mysqli_query($con, $query_pan);
+                    $row_pan = mysqli_fetch_assoc($res_pan);
+
+                    if($row_pan['pan_verification']==0){
+                        ?>
+
+                        <div class="col-lg-4">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">PAN Verification Pending</h4>
+                            </div>
+                            <div class="panel-body">
+                                <?php
+
+
+
+                                 if(isset($_POST['pan_save_button'])){
+                               
+                            if (isset($_FILES['pan_file'])) {
+
+    $errors = array();
+    $file_name = $_FILES['pan_file']['name'];
+    $file_size = $_FILES['pan_file']['size'];
+    $file_tmp = $_FILES['pan_file']['tmp_name'];
+    $file_type = $_FILES['pan_file']['type'];
+    $tmp = explode('.', $_FILES['pan_file']['name']);
+    $file_ext = end($tmp);
+    $file_ext = strtolower($file_ext);
+    // echo $file_ext;
+
+    $extensions = array("jpeg", "jpg", "png", "pdf");
+
+    if (in_array($file_ext, $extensions) === false) {
+        $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+    }
+
+    if ($file_size > 2097152) {
+        $errors[] = 'File size must be excately 2 MB';
+    }
+    
+    if (empty($errors) == true) {
+        $query3 = "UPDATE user SET pan_verification=1, pan_file='$file_name' WHERE email='$userid'";
+        $res3 = mysqli_query($con, $query3);
+        echo mysqli_error($con);
+        move_uploaded_file($file_tmp, "pan/" . $file_name);
+//        echo "Success";
+        //redirect("index.php");
+    } else {
+        print_r($errors);
+    }
+}
+redirect("Refresh:0");
+}
+
+
+
+                                echo "Please upload copy of your PAN card.";?>
+
+                                <hr>
+                                 <form action="" method="POST" enctype="multipart/form-data">
+                                   
+                                    <input required="required" type="file" multiple="multiple" name="pan_file"> 
+                                    <br>
+                                    <input type="submit" value="SAVE" name="pan_save_button">
+                                </form>
+
+
+                                <?php
+                                ?>
+
+
+                            </div>
+                        </div>
                     </div>
+
+                        <?php
+                    }
+                    else{
+                        ?>
+                            <div class="col-lg-4">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">PAN Uploaded</h4>
+                            </div>
+                            <div class="panel-body">
+                                <?php 
+                                echo "Your PAN has been Uploaded.";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                        <?php
+                    }
+                     ?>
+
+                     
 
                     <?php
 

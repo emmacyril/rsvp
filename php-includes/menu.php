@@ -50,8 +50,12 @@
                         <li>
                             <a href="tree.php"><i class="fa fa-adjust fa-hub"></i>Tree</a>
                         </li>
-						<li>
+						<!-- <li>
                             <a href="payment-received-history.php"><i class="fa fa-adjust fa-hub"></i>Payment Received History</a>
+                        </li>
+ -->
+                        <li>
+                            <a href="payment-submitted-history.php"><i class="fa fa-adjust fa-hub"></i>Payment History</a>
                         </li>
 
                     </ul>
