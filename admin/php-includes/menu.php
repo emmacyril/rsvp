@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">RSVP - admin</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -37,9 +37,6 @@
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="view-pin-request.php"><i class="fa fa-adjust fa-fw"></i> View Pin Request</a>
                         </li>
                         <li>
                             <a href="income.php"><i class="fa fa-rupee fa-fw"></i> Income</a>

@@ -61,7 +61,7 @@ if(isset($_GET['join_user'])){
 	if($flag==1){
 		
 		//Insert into User profile
-		$query = mysqli_query($con,"insert into user(`email`,`password`,`mobile`,`pan`,`f_name`,`l_name`,`under_userid`,`side`) values('$email','$password','$mobile','$pan','$f_name','$l_name','$under_userid','$side')");
+		$query = mysqli_query($con,"insert into user(`email`,`password`,`mobile`,`pan`,`f_name`,`l_name`,`dob`,`under_userid`,`side`) values('$email','$password','$mobile','$pan','$f_name','$l_name','dob','$under_userid','$side')");
 		
 		echo mysqli_error($con);
 
@@ -421,7 +421,9 @@ function getUnderIdPlace($userid){
             // document.getElementById("pan_status").value="PAN Verified";
             document.getElementById("pan_status").innerHTML = "<span style='font-size:20px;'>&#10003;</span> PAN VALID";
             document.getElementById("pan_status").style.color="GREEN";
-            document.getElementById("pan_field").value=pan_upper;
+            var panUP = panVal.toUpperCase();
+            console.log(panUP);
+            document.getElementById('pan_field').innerHTML=panUP;
         	}
 
         	else {
