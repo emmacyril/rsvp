@@ -164,6 +164,49 @@ if(isset($_GET['join_user'])){
 		
 		
 		echo mysqli_error($con);
+
+
+
+		// -------------------------------------
+
+
+  $otp = $password;
+  $sp_id = $email;
+  //$query_set_hash = "UPDATE khata SET mob_otp='$otp' WHERE kritarth_id='$kid'";
+  //$res_set_hash = mysqli_query($link, $query_set_hash);
+  $mbl = $mobile;
+$curl = curl_init();
+
+// curl_setopt_array($curl, array(
+//    CURLOPT_URL => "https://api.msg91.com/api/sendhttp.php?mobiles=".$mbl."&authkey=296366AFcEP9oki5d8fad56&route=4&sender=KRTRTH&message=".$otp." is your verification Code.",
+
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://control.msg91.com/api/sendotp.php?template=hello&otp=".$otp."&otp_length=4&otp_expiry=10&sender=RSVPsm&message=Welcome to RSVP, ".$f_name."%0aSponsor ID - ".$sp_id."%0aPassword - ".$otp."&mobile=".$mbl."&authkey=298885Anxm4lDJv9w5da54916",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => "",
+  CURLOPT_SSL_VERIFYHOST => 0,
+  CURLOPT_SSL_VERIFYPEER => 0,
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  //echo $response;
+}
+//--------------------------------------------
 		
 		echo '<script>alert("Testing success.");</script>';
 	}
@@ -301,7 +344,7 @@ function getUnderIdPlace($userid){
 
                             <div class="form-group">
                                 <label>PAN</label>
-                                <input onchange="check_pan(this)" type="text" name="pan" class="form-control" required>
+                                <input id="pan_field" onchange="check_pan(this)" type="text" name="pan" class="form-control" required>
                             </div>
                             <!-- PAN STATUS -->
                             <p id="pan_status"></p>
@@ -374,10 +417,13 @@ function getUnderIdPlace($userid){
         	var regpan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
 			if(regpan.test(panVal)){
             console.log("Correct PAN");
+            pan_upper = panVal.toUpperCase();
             // document.getElementById("pan_status").value="PAN Verified";
             document.getElementById("pan_status").innerHTML = "<span style='font-size:20px;'>&#10003;</span> PAN VALID";
             document.getElementById("pan_status").style.color="GREEN";
+            document.getElementById("pan_field").value=pan_upper;
         	}
+
         	else {
             console.log("Incorrect PAN");
             document.getElementById("pan_status").innerHTML="<span style='font-size:20px;'>&#10006;</span> PAN INVALID";
