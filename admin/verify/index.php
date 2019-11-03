@@ -129,21 +129,32 @@ td, th {
                                  ?>
                                     <tr>
                                         <td>
+                                            <p>
                                             <?php echo $row_verify['f_name'] ?>
+                                            </p>
                                         </td>
                                         <td>
+                                            <p>
                                             <?php echo $row_verify['l_name'] ?>
+                                            </p>
                                         </td>
                                         <td>
+                                            <p>
                                             <?php echo $row_verify['dob'] ?>
+                                            </p>
                                         </td>
                                          <td>
+                                            <p>
                                             <?php echo $row_verify['mobile'] ?>
+                                            </p>
                                         </td>
                                         <td>
+                                            <p>
                                             <?php echo $row_verify['pan'] ?>
+                                            </p>
                                         </td>
                                         <td>
+                                            <p>
 
                                             <?php
 
@@ -155,19 +166,24 @@ td, th {
                                         <?php } 
                                         else{
 
+
                                             echo "Not Submitted";
                                         }
 
                                         ?>
                                         </td>
                                         <td>
+                                            <p>
                                             <?php echo $row_verify['doc_type'] ?>
+                                            </p>
                                         </td>
                                          <td>
+                                            <p>
                                             <?php echo $row_verify['doc_no'] ?>
+                                            </p>
                                         </td>
                                         <td>
-
+                                            <p>
                                             <?php
 
                                             if($row_verify['doc_status']==1)
@@ -182,11 +198,15 @@ td, th {
                                         }
 
                                         ?>
+                                        </p>
                                         </td>
                                         <td>
+                                            <p>
                                              <?php echo $row_verify['payment_amt'] ?>
                                         </td>
+                                    </p>
                                         <td>
+                                            <p>
                                             <select name="verification">
                                                 <option>
                                                     Verified
@@ -200,6 +220,7 @@ td, th {
                                                     Pending
                                                 </option>
                                             </select>
+                                        </p>
                                         </td>
                                     </tr>
                                 <?php } ?>
