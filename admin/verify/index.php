@@ -66,7 +66,7 @@ td, th {
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php include('../php-includes/menu.php'); ?>
+        <?php include('../inc/menu.php'); ?>
 
         <!-- Page Content -->
         <div id="page-wrapper">
