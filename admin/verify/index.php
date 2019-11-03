@@ -96,6 +96,9 @@ td, th {
                                             DOB
                                         </th>
                                         <th>
+                                            Mobile
+                                        </th>
+                                        <th>
                                             PAN
                                         </th>
                                         <th>
@@ -130,6 +133,9 @@ td, th {
                                         </td>
                                         <td>
                                             <?php echo $row_verify['dob'] ?>
+                                        </td>
+                                         <td>
+                                            <?php echo $row_verify['mobile'] ?>
                                         </td>
                                         <td>
                                             <?php echo $row_verify['pan'] ?>
@@ -173,6 +179,21 @@ td, th {
                                         }
 
                                         ?>
+                                        </td>
+                                        <td>
+                                            <select name="verification">
+                                                <option>
+                                                    Verified
+                                                </option>
+
+                                                <option>
+                                                    Rejected
+                                                </option>
+
+                                                <option>
+                                                    Pending
+                                                </option>
+                                            </select>
                                         </td>
                                     </tr>
                                 <?php } ?>
